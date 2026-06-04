@@ -33,7 +33,7 @@ class _SplashUIState extends State<SplashUI> {
     if (!kIsWeb) FlutterNativeSplash.remove();
 
     if (mounted) {
-      context.goNamed(AppRouteName.login);
+      context.goNamed(AppRouteName.home);
     }
   }
 

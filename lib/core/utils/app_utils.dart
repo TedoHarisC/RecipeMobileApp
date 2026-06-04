@@ -5,5 +5,5 @@ final di = GetIt.instance;
 class AppUtils {
   AppUtils._();
 
-  static String appName = "Base Project";
+  static String appName = "Recipe App";
 }

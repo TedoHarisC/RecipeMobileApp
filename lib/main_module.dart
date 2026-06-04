@@ -5,7 +5,6 @@ import 'package:recipe_app/core/network/http_client.dart';
 import 'package:recipe_app/core/network/service/network_service.dart';
 import 'package:recipe_app/core/utils/app_event/app_event_broadcaster.dart';
 import 'package:recipe_app/core/utils/app_utils.dart';
-import 'package:recipe_app/module/auth/auth_module.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 
@@ -29,6 +28,6 @@ class MainModule {
     di.registerSingleton(AppEventBroadcaster());
 
     // module
-    AuthModule.init();
+    // AuthModule.init();
   }
 }
