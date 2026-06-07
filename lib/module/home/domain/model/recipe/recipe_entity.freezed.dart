@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecipeEntity {
 
- String get id; String get title; List<IntegratedEntity> get integrated; String? get category; String? get area; String? get instructions; String? get thumbnailUrl; List<String>? get tags; String? get youtubeUrl; bool get isSaved;
+ String get id; String get title; List<IngredientEntity> get ingredients; String? get category; String? get area; String? get instructions; String? get thumbnailUrl; List<String>? get tags; String? get youtubeUrl; bool get isSaved;
 /// Create a copy of RecipeEntity
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $RecipeEntityCopyWith<RecipeEntity> get copyWith => _$RecipeEntityCopyWithImpl<R
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecipeEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.integrated, integrated)&&(identical(other.category, category) || other.category == category)&&(identical(other.area, area) || other.area == area)&&(identical(other.instructions, instructions) || other.instructions == instructions)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.youtubeUrl, youtubeUrl) || other.youtubeUrl == youtubeUrl)&&(identical(other.isSaved, isSaved) || other.isSaved == isSaved));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RecipeEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.ingredients, ingredients)&&(identical(other.category, category) || other.category == category)&&(identical(other.area, area) || other.area == area)&&(identical(other.instructions, instructions) || other.instructions == instructions)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.youtubeUrl, youtubeUrl) || other.youtubeUrl == youtubeUrl)&&(identical(other.isSaved, isSaved) || other.isSaved == isSaved));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,const DeepCollectionEquality().hash(integrated),category,area,instructions,thumbnailUrl,const DeepCollectionEquality().hash(tags),youtubeUrl,isSaved);
+int get hashCode => Object.hash(runtimeType,id,title,const DeepCollectionEquality().hash(ingredients),category,area,instructions,thumbnailUrl,const DeepCollectionEquality().hash(tags),youtubeUrl,isSaved);
 
 @override
 String toString() {
-  return 'RecipeEntity(id: $id, title: $title, integrated: $integrated, category: $category, area: $area, instructions: $instructions, thumbnailUrl: $thumbnailUrl, tags: $tags, youtubeUrl: $youtubeUrl, isSaved: $isSaved)';
+  return 'RecipeEntity(id: $id, title: $title, ingredients: $ingredients, category: $category, area: $area, instructions: $instructions, thumbnailUrl: $thumbnailUrl, tags: $tags, youtubeUrl: $youtubeUrl, isSaved: $isSaved)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $RecipeEntityCopyWith<$Res>  {
   factory $RecipeEntityCopyWith(RecipeEntity value, $Res Function(RecipeEntity) _then) = _$RecipeEntityCopyWithImpl;
 @useResult
 $Res call({
- String id, String title, List<IntegratedEntity> integrated, String? category, String? area, String? instructions, String? thumbnailUrl, List<String>? tags, String? youtubeUrl, bool isSaved
+ String id, String title, List<IngredientEntity> ingredients, String? category, String? area, String? instructions, String? thumbnailUrl, List<String>? tags, String? youtubeUrl, bool isSaved
 });
 
 
@@ -62,12 +62,12 @@ class _$RecipeEntityCopyWithImpl<$Res>
 
 /// Create a copy of RecipeEntity
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? integrated = null,Object? category = freezed,Object? area = freezed,Object? instructions = freezed,Object? thumbnailUrl = freezed,Object? tags = freezed,Object? youtubeUrl = freezed,Object? isSaved = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? ingredients = null,Object? category = freezed,Object? area = freezed,Object? instructions = freezed,Object? thumbnailUrl = freezed,Object? tags = freezed,Object? youtubeUrl = freezed,Object? isSaved = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,integrated: null == integrated ? _self.integrated : integrated // ignore: cast_nullable_to_non_nullable
-as List<IntegratedEntity>,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as String,ingredients: null == ingredients ? _self.ingredients : ingredients // ignore: cast_nullable_to_non_nullable
+as List<IngredientEntity>,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as String?,area: freezed == area ? _self.area : area // ignore: cast_nullable_to_non_nullable
 as String?,instructions: freezed == instructions ? _self.instructions : instructions // ignore: cast_nullable_to_non_nullable
 as String?,thumbnailUrl: freezed == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
@@ -159,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  List<IntegratedEntity> integrated,  String? category,  String? area,  String? instructions,  String? thumbnailUrl,  List<String>? tags,  String? youtubeUrl,  bool isSaved)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  List<IngredientEntity> ingredients,  String? category,  String? area,  String? instructions,  String? thumbnailUrl,  List<String>? tags,  String? youtubeUrl,  bool isSaved)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecipeEntity() when $default != null:
-return $default(_that.id,_that.title,_that.integrated,_that.category,_that.area,_that.instructions,_that.thumbnailUrl,_that.tags,_that.youtubeUrl,_that.isSaved);case _:
+return $default(_that.id,_that.title,_that.ingredients,_that.category,_that.area,_that.instructions,_that.thumbnailUrl,_that.tags,_that.youtubeUrl,_that.isSaved);case _:
   return orElse();
 
 }
@@ -180,10 +180,10 @@ return $default(_that.id,_that.title,_that.integrated,_that.category,_that.area,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  List<IntegratedEntity> integrated,  String? category,  String? area,  String? instructions,  String? thumbnailUrl,  List<String>? tags,  String? youtubeUrl,  bool isSaved)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  List<IngredientEntity> ingredients,  String? category,  String? area,  String? instructions,  String? thumbnailUrl,  List<String>? tags,  String? youtubeUrl,  bool isSaved)  $default,) {final _that = this;
 switch (_that) {
 case _RecipeEntity():
-return $default(_that.id,_that.title,_that.integrated,_that.category,_that.area,_that.instructions,_that.thumbnailUrl,_that.tags,_that.youtubeUrl,_that.isSaved);case _:
+return $default(_that.id,_that.title,_that.ingredients,_that.category,_that.area,_that.instructions,_that.thumbnailUrl,_that.tags,_that.youtubeUrl,_that.isSaved);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -200,10 +200,10 @@ return $default(_that.id,_that.title,_that.integrated,_that.category,_that.area,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  List<IntegratedEntity> integrated,  String? category,  String? area,  String? instructions,  String? thumbnailUrl,  List<String>? tags,  String? youtubeUrl,  bool isSaved)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  List<IngredientEntity> ingredients,  String? category,  String? area,  String? instructions,  String? thumbnailUrl,  List<String>? tags,  String? youtubeUrl,  bool isSaved)?  $default,) {final _that = this;
 switch (_that) {
 case _RecipeEntity() when $default != null:
-return $default(_that.id,_that.title,_that.integrated,_that.category,_that.area,_that.instructions,_that.thumbnailUrl,_that.tags,_that.youtubeUrl,_that.isSaved);case _:
+return $default(_that.id,_that.title,_that.ingredients,_that.category,_that.area,_that.instructions,_that.thumbnailUrl,_that.tags,_that.youtubeUrl,_that.isSaved);case _:
   return null;
 
 }
@@ -215,16 +215,16 @@ return $default(_that.id,_that.title,_that.integrated,_that.category,_that.area,
 
 
 class _RecipeEntity implements RecipeEntity {
-  const _RecipeEntity({required this.id, required this.title, required final  List<IntegratedEntity> integrated, this.category, this.area, this.instructions, this.thumbnailUrl, final  List<String>? tags, this.youtubeUrl, this.isSaved = false}): _integrated = integrated,_tags = tags;
+  const _RecipeEntity({required this.id, required this.title, required final  List<IngredientEntity> ingredients, this.category, this.area, this.instructions, this.thumbnailUrl, final  List<String>? tags, this.youtubeUrl, this.isSaved = false}): _ingredients = ingredients,_tags = tags;
   
 
 @override final  String id;
 @override final  String title;
- final  List<IntegratedEntity> _integrated;
-@override List<IntegratedEntity> get integrated {
-  if (_integrated is EqualUnmodifiableListView) return _integrated;
+ final  List<IngredientEntity> _ingredients;
+@override List<IngredientEntity> get ingredients {
+  if (_ingredients is EqualUnmodifiableListView) return _ingredients;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_integrated);
+  return EqualUnmodifiableListView(_ingredients);
 }
 
 @override final  String? category;
@@ -253,16 +253,16 @@ _$RecipeEntityCopyWith<_RecipeEntity> get copyWith => __$RecipeEntityCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecipeEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._integrated, _integrated)&&(identical(other.category, category) || other.category == category)&&(identical(other.area, area) || other.area == area)&&(identical(other.instructions, instructions) || other.instructions == instructions)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.youtubeUrl, youtubeUrl) || other.youtubeUrl == youtubeUrl)&&(identical(other.isSaved, isSaved) || other.isSaved == isSaved));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RecipeEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._ingredients, _ingredients)&&(identical(other.category, category) || other.category == category)&&(identical(other.area, area) || other.area == area)&&(identical(other.instructions, instructions) || other.instructions == instructions)&&(identical(other.thumbnailUrl, thumbnailUrl) || other.thumbnailUrl == thumbnailUrl)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.youtubeUrl, youtubeUrl) || other.youtubeUrl == youtubeUrl)&&(identical(other.isSaved, isSaved) || other.isSaved == isSaved));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,const DeepCollectionEquality().hash(_integrated),category,area,instructions,thumbnailUrl,const DeepCollectionEquality().hash(_tags),youtubeUrl,isSaved);
+int get hashCode => Object.hash(runtimeType,id,title,const DeepCollectionEquality().hash(_ingredients),category,area,instructions,thumbnailUrl,const DeepCollectionEquality().hash(_tags),youtubeUrl,isSaved);
 
 @override
 String toString() {
-  return 'RecipeEntity(id: $id, title: $title, integrated: $integrated, category: $category, area: $area, instructions: $instructions, thumbnailUrl: $thumbnailUrl, tags: $tags, youtubeUrl: $youtubeUrl, isSaved: $isSaved)';
+  return 'RecipeEntity(id: $id, title: $title, ingredients: $ingredients, category: $category, area: $area, instructions: $instructions, thumbnailUrl: $thumbnailUrl, tags: $tags, youtubeUrl: $youtubeUrl, isSaved: $isSaved)';
 }
 
 
@@ -273,7 +273,7 @@ abstract mixin class _$RecipeEntityCopyWith<$Res> implements $RecipeEntityCopyWi
   factory _$RecipeEntityCopyWith(_RecipeEntity value, $Res Function(_RecipeEntity) _then) = __$RecipeEntityCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String title, List<IntegratedEntity> integrated, String? category, String? area, String? instructions, String? thumbnailUrl, List<String>? tags, String? youtubeUrl, bool isSaved
+ String id, String title, List<IngredientEntity> ingredients, String? category, String? area, String? instructions, String? thumbnailUrl, List<String>? tags, String? youtubeUrl, bool isSaved
 });
 
 
@@ -290,12 +290,12 @@ class __$RecipeEntityCopyWithImpl<$Res>
 
 /// Create a copy of RecipeEntity
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? integrated = null,Object? category = freezed,Object? area = freezed,Object? instructions = freezed,Object? thumbnailUrl = freezed,Object? tags = freezed,Object? youtubeUrl = freezed,Object? isSaved = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? ingredients = null,Object? category = freezed,Object? area = freezed,Object? instructions = freezed,Object? thumbnailUrl = freezed,Object? tags = freezed,Object? youtubeUrl = freezed,Object? isSaved = null,}) {
   return _then(_RecipeEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,integrated: null == integrated ? _self._integrated : integrated // ignore: cast_nullable_to_non_nullable
-as List<IntegratedEntity>,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as String,ingredients: null == ingredients ? _self._ingredients : ingredients // ignore: cast_nullable_to_non_nullable
+as List<IngredientEntity>,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as String?,area: freezed == area ? _self.area : area // ignore: cast_nullable_to_non_nullable
 as String?,instructions: freezed == instructions ? _self.instructions : instructions // ignore: cast_nullable_to_non_nullable
 as String?,thumbnailUrl: freezed == thumbnailUrl ? _self.thumbnailUrl : thumbnailUrl // ignore: cast_nullable_to_non_nullable
@@ -310,20 +310,20 @@ as bool,
 }
 
 /// @nodoc
-mixin _$IntegratedEntity {
+mixin _$IngredientEntity {
 
  String get name; String get measure;
-/// Create a copy of IntegratedEntity
+/// Create a copy of IngredientEntity
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$IntegratedEntityCopyWith<IntegratedEntity> get copyWith => _$IntegratedEntityCopyWithImpl<IntegratedEntity>(this as IntegratedEntity, _$identity);
+$IngredientEntityCopyWith<IngredientEntity> get copyWith => _$IngredientEntityCopyWithImpl<IngredientEntity>(this as IngredientEntity, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is IntegratedEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.measure, measure) || other.measure == measure));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is IngredientEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.measure, measure) || other.measure == measure));
 }
 
 
@@ -332,15 +332,15 @@ int get hashCode => Object.hash(runtimeType,name,measure);
 
 @override
 String toString() {
-  return 'IntegratedEntity(name: $name, measure: $measure)';
+  return 'IngredientEntity(name: $name, measure: $measure)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $IntegratedEntityCopyWith<$Res>  {
-  factory $IntegratedEntityCopyWith(IntegratedEntity value, $Res Function(IntegratedEntity) _then) = _$IntegratedEntityCopyWithImpl;
+abstract mixin class $IngredientEntityCopyWith<$Res>  {
+  factory $IngredientEntityCopyWith(IngredientEntity value, $Res Function(IngredientEntity) _then) = _$IngredientEntityCopyWithImpl;
 @useResult
 $Res call({
  String name, String measure
@@ -351,14 +351,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$IntegratedEntityCopyWithImpl<$Res>
-    implements $IntegratedEntityCopyWith<$Res> {
-  _$IntegratedEntityCopyWithImpl(this._self, this._then);
+class _$IngredientEntityCopyWithImpl<$Res>
+    implements $IngredientEntityCopyWith<$Res> {
+  _$IngredientEntityCopyWithImpl(this._self, this._then);
 
-  final IntegratedEntity _self;
-  final $Res Function(IntegratedEntity) _then;
+  final IngredientEntity _self;
+  final $Res Function(IngredientEntity) _then;
 
-/// Create a copy of IntegratedEntity
+/// Create a copy of IngredientEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? measure = null,}) {
   return _then(_self.copyWith(
@@ -371,8 +371,8 @@ as String,
 }
 
 
-/// Adds pattern-matching-related methods to [IntegratedEntity].
-extension IntegratedEntityPatterns on IntegratedEntity {
+/// Adds pattern-matching-related methods to [IngredientEntity].
+extension IngredientEntityPatterns on IngredientEntity {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -385,10 +385,10 @@ extension IntegratedEntityPatterns on IntegratedEntity {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _IntegratedEntity value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _IngredientEntity value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _IntegratedEntity() when $default != null:
+case _IngredientEntity() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -407,10 +407,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _IntegratedEntity value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _IngredientEntity value)  $default,){
 final _that = this;
 switch (_that) {
-case _IntegratedEntity():
+case _IngredientEntity():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -428,10 +428,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _IntegratedEntity value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _IngredientEntity value)?  $default,){
 final _that = this;
 switch (_that) {
-case _IntegratedEntity() when $default != null:
+case _IngredientEntity() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -451,7 +451,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String measure)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _IntegratedEntity() when $default != null:
+case _IngredientEntity() when $default != null:
 return $default(_that.name,_that.measure);case _:
   return orElse();
 
@@ -472,7 +472,7 @@ return $default(_that.name,_that.measure);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String measure)  $default,) {final _that = this;
 switch (_that) {
-case _IntegratedEntity():
+case _IngredientEntity():
 return $default(_that.name,_that.measure);case _:
   throw StateError('Unexpected subclass');
 
@@ -492,7 +492,7 @@ return $default(_that.name,_that.measure);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String measure)?  $default,) {final _that = this;
 switch (_that) {
-case _IntegratedEntity() when $default != null:
+case _IngredientEntity() when $default != null:
 return $default(_that.name,_that.measure);case _:
   return null;
 
@@ -504,24 +504,24 @@ return $default(_that.name,_that.measure);case _:
 /// @nodoc
 
 
-class _IntegratedEntity implements IntegratedEntity {
-  const _IntegratedEntity({required this.name, required this.measure});
+class _IngredientEntity implements IngredientEntity {
+  const _IngredientEntity({required this.name, required this.measure});
   
 
 @override final  String name;
 @override final  String measure;
 
-/// Create a copy of IntegratedEntity
+/// Create a copy of IngredientEntity
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$IntegratedEntityCopyWith<_IntegratedEntity> get copyWith => __$IntegratedEntityCopyWithImpl<_IntegratedEntity>(this, _$identity);
+_$IngredientEntityCopyWith<_IngredientEntity> get copyWith => __$IngredientEntityCopyWithImpl<_IngredientEntity>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _IntegratedEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.measure, measure) || other.measure == measure));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _IngredientEntity&&(identical(other.name, name) || other.name == name)&&(identical(other.measure, measure) || other.measure == measure));
 }
 
 
@@ -530,15 +530,15 @@ int get hashCode => Object.hash(runtimeType,name,measure);
 
 @override
 String toString() {
-  return 'IntegratedEntity(name: $name, measure: $measure)';
+  return 'IngredientEntity(name: $name, measure: $measure)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$IntegratedEntityCopyWith<$Res> implements $IntegratedEntityCopyWith<$Res> {
-  factory _$IntegratedEntityCopyWith(_IntegratedEntity value, $Res Function(_IntegratedEntity) _then) = __$IntegratedEntityCopyWithImpl;
+abstract mixin class _$IngredientEntityCopyWith<$Res> implements $IngredientEntityCopyWith<$Res> {
+  factory _$IngredientEntityCopyWith(_IngredientEntity value, $Res Function(_IngredientEntity) _then) = __$IngredientEntityCopyWithImpl;
 @override @useResult
 $Res call({
  String name, String measure
@@ -549,17 +549,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$IntegratedEntityCopyWithImpl<$Res>
-    implements _$IntegratedEntityCopyWith<$Res> {
-  __$IntegratedEntityCopyWithImpl(this._self, this._then);
+class __$IngredientEntityCopyWithImpl<$Res>
+    implements _$IngredientEntityCopyWith<$Res> {
+  __$IngredientEntityCopyWithImpl(this._self, this._then);
 
-  final _IntegratedEntity _self;
-  final $Res Function(_IntegratedEntity) _then;
+  final _IngredientEntity _self;
+  final $Res Function(_IngredientEntity) _then;
 
-/// Create a copy of IntegratedEntity
+/// Create a copy of IngredientEntity
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? measure = null,}) {
-  return _then(_IntegratedEntity(
+  return _then(_IngredientEntity(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,measure: null == measure ? _self.measure : measure // ignore: cast_nullable_to_non_nullable
 as String,

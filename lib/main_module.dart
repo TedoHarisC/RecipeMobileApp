@@ -7,6 +7,7 @@ import 'package:recipe_app/core/utils/app_event/app_event_broadcaster.dart';
 import 'package:recipe_app/core/utils/app_utils.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
+import 'package:recipe_app/module/home/home_module.dart';
 
 class MainModule {
   const MainModule._();
@@ -27,7 +28,7 @@ class MainModule {
     // app event
     di.registerSingleton(AppEventBroadcaster());
 
-    // module
-    // AuthModule.init();
+    // other module (page module / DI)
+    HomeModule.init();
   }
 }

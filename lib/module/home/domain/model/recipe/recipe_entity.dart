@@ -7,7 +7,7 @@ abstract class RecipeEntity with _$RecipeEntity {
   const factory RecipeEntity({
     required String id,
     required String title,
-    required List<IntegratedEntity> integrated,
+    required List<IngredientEntity> ingredients,
     
     String? category,
     String? area,
@@ -20,9 +20,9 @@ abstract class RecipeEntity with _$RecipeEntity {
 }
 
 @freezed
-abstract class IntegratedEntity with _$IntegratedEntity {
-  const factory IntegratedEntity({
+abstract class IngredientEntity with _$IngredientEntity {
+  const factory IngredientEntity({
     required String name,
     required String measure,
-  }) = _IntegratedEntity;
+  }) = _IngredientEntity;
 }
