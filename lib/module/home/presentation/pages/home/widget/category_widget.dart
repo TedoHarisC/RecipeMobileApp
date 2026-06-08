@@ -1,9 +1,16 @@
-part of '../home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:recipe_app/core/component/image/design_image.dart';
+import 'package:recipe_app/core/extensions/build_context_ext.dart';
+import 'package:recipe_app/core/theme/app_color.dart';
+import 'package:recipe_app/core/theme/app_padding.dart';
+import 'package:recipe_app/core/theme/app_radius.dart';
+import 'package:recipe_app/module/home/domain/model/category/category_entity.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
-class _CategoriesWidget extends StatelessWidget {
+class CategoriesWidget extends StatelessWidget {
   final List<CategoryEntity> categories;
 
-  const _CategoriesWidget({this.categories = const []});
+  const CategoriesWidget({super.key, this.categories = const []});
 
   @override
   Widget build(BuildContext context) {
@@ -72,11 +79,13 @@ class _CategoriesWidget extends StatelessWidget {
   }
 }
 
-class _LoadingCategoriesWidget extends StatelessWidget {
+class LoadingCategoriesWidget extends StatelessWidget {
+  const LoadingCategoriesWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Skeletonizer.zone(
-      child: _CategoriesWidget(
+      child: CategoriesWidget(
         categories: [
           CategoryEntity(
             id: '',

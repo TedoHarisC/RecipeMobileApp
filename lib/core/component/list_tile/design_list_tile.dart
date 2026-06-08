@@ -65,7 +65,7 @@ class DesignListTile extends StatelessWidget {
                       child: title,
                     ),
                     if (subtitle != null) ...[
-                      const SizedBox(height: 4),
+                      const SizedBox(height: 8),
                       subtitle!,
                     ],
                   ],
