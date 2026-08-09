@@ -1,4 +1,5 @@
 import 'package:recipe_app/core/env/env.dart';
+import 'package:recipe_app/core/local_database/local_database.dart';
 import 'package:recipe_app/core/local_storage/local_storage.dart';
 import 'package:recipe_app/core/local_storage/local_storage_secure.dart';
 import 'package:recipe_app/core/network/http_client.dart';
@@ -24,6 +25,9 @@ class MainModule {
     di.registerSingleton<LocalStorage>(
       LocalStorageSecure()..init(),
     );
+
+    //local database
+    di.registerSingleton<LocalDatabase>(LocalDatabase());
 
     // app event
     di.registerSingleton(AppEventBroadcaster());

@@ -1,4 +1,5 @@
 import 'package:recipe_app/core/utils/app_utils.dart';
+import 'package:recipe_app/module/home/data/datasources/home_local_datasource.dart';
 import 'package:recipe_app/module/home/data/datasources/home_remote_datasource.dart';
 import 'package:recipe_app/module/home/data/repository/home_repository_impl.dart';
 import 'package:recipe_app/module/home/domain/repository/home_repository.dart';
@@ -14,10 +15,13 @@ class HomeModule {
     di.registerSingleton<HomeRemoteDataSource>(
       HomeRemoteDataSourceImpl(di()),
     );
+    di.registerSingleton<HomeLocalDataSource>(
+      HomeLocalDataSourceImpl(di()),
+    );
 
     // Repositories (Hanya ada satu instance, karena tidak memiliki state)
     di.registerSingleton<HomeRepository>(
-      HomeRepositoryImpl(di()),
+      HomeRepositoryImpl(di(), di()),
     );
 
     // Use cases (Bisa memiliki satu instance atau lebih, tergantung kebutuhan. Jika use case memiliki state, sebaiknya menggunakan factory)
